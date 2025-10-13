@@ -5,6 +5,8 @@ import { useTRPC } from "@/trpc/client";
 import { LoadingState } from "@/components/loading-state";
 import { Description } from "@radix-ui/react-dialog";
 import { ErrorState } from "@/components/error-state";
+import { Button } from "@/components/ui/button";
+import { ResponsiveDialog } from "@/components/responsive-dialog";
  
 export const AgentsView = () => {
   const trpc = useTRPC();
@@ -14,7 +16,15 @@ export const AgentsView = () => {
 
 return(
     <div>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+        {/* <ResponsiveDialog 
+        title="Responsive test"
+        description="Responsive description"
+        open
+        onOpenChange={()=>{}} 
+        >
+            <Button>Some action</Button>
+        </ResponsiveDialog> */}
+      {JSON.stringify(data, null, 2)}
     </div>
   );
 };
