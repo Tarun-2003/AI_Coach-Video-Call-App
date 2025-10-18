@@ -6,19 +6,13 @@ import { z } from "zod";
 import { eq, getTableColumns, sql} from "drizzle-orm";
 import { number } from "better-auth";
 export const agentsRouter = createTRPCRouter({
-  // getOne: baseProcedure.query(async () => {
-  //   const data = await db
-  //     .select()
-  //     .from(agents);
-  //   return data;
 
-  // }), 
-    getOne: baseProcedure
+    getOne: protectedProcedure
     .input(z.object({ id: z.string() }))
     .query(async ({ input }) => {
       const [existingAgent] = await db
         .select({
-          meetingCount: sql<number>'5',
+          meetingCount: sql<number>`5`,
           ...getTableColumns(agents),
     
 
@@ -30,9 +24,25 @@ export const agentsRouter = createTRPCRouter({
     }),
   
   
-  getMany: baseProcedure.query(async () => {
+  getMany: protectedProcedure
+      .input(
+         z
+        .object({
+          page: z.number().default(1),
+          pageSize: z.number().min(1).max(100).default(10),
+          search: z.string().nullish(),
+        })
+        .optional()
+      
+    )
+  .query(async () => {
     const data = await db
-      .select()
+      .select({
+               meetingCount: sql<number>`6`,
+          ...getTableColumns(agents),
+    
+
+      })
       .from(agents);
     return data;
   }),
@@ -49,4 +59,3 @@ export const agentsRouter = createTRPCRouter({
       return createdAgent;
     }),
 });
-                                                                                                                        
