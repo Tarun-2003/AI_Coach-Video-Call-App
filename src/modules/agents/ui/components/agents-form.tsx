@@ -43,7 +43,7 @@ export const AgentForm = ({
       onSuccess: async () => {
         // Invalidate the agents list
         await queryClient.invalidateQueries(
-          trpc.agents.getMany.queryOptions()
+          trpc.agents.getMany.queryOptions({})
         );
 
         // If editing, refresh that specific agent
