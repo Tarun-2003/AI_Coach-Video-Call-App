@@ -1,30 +1,56 @@
 "use client";
 
-import { useSuspenseQuery } from "@tanstack/react-query";
+import { useMutation, useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
 import { useTRPC } from "@/trpc/client";
 import { LoadingState } from "@/components/loading-state";
 import { ErrorState } from "@/components/error-state";
 import { AgentIdViewHeader } from "../components/agents-id-view-header";
 import { GeneratedAvatar } from "@/components/generated-avatar";
 import { Badge, VideoIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { useState } from "react";
+import { UpdateAgentDialog } from "../components/update-agent-dialog";
 
 interface Props {
   agentId: string;
 }
 
 export const AgentIdView = ({ agentId }: Props) => {
+  const router = useRouter();
+  const queryClient =useQueryClient(); 
   const trpc = useTRPC();
-
+  const [updateAgentDialogOpen,setupdateAgentDialogOpen ] = useState(false);
   const { data } = useSuspenseQuery(trpc.agents.getOne.queryOptions({ id: agentId }));
-
+const removeAgent= useMutation(
+  trpc.agents.remove.mutationOptions({
+onSuccess: async ()=>{
+  await queryClient.invalidateQueries(trpc.agents.getMany.queryOptions({}));
+  // queryClient.invalidateQueries(trpc.agents.getMany.queryOptions({}));
+  router.push("/agents");
+},
+onError:(error)=>{
+  toast.error(error.message)
+}
+  }),
+);
   return (
+    <>
+    <UpdateAgentDialog
+    open={updateAgentDialogOpen}
+    onOpenChange={setupdateAgentDialogOpen}
+    initialValues={data}
+    />
+
     <div className="flex-1 py-4 px-4 md:px-8 flex flex-col gap-y-4">
-      
+   
       <AgentIdViewHeader
       agentId={agentId}
       agentName={data.name}
-      onEdit={()=>{}}
-      onRemove={()=>{}}
+      onEdit={()=>setupdateAgentDialogOpen(true)}
+      onRemove={()=>removeAgent.mutate({
+        id:agentId
+      })}
       />
 
       
@@ -52,6 +78,7 @@ export const AgentIdView = ({ agentId }: Props) => {
           </div>
         </div>
     </div>
+    </>
   );
 };
 
