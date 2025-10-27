@@ -2,15 +2,23 @@
 
 import { ErrorState } from "@/components/error-state";
 import { LoadingState } from "@/components/loading-state";
+import { DataTable } from "@/modules/agents/ui/components/data-table";
 import { useTRPC } from "@/trpc/client";
 import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
+import { columns } from "../components/columns";
+import { EmptyState } from "@/components/empty-state";
 export const MeetingsView = () => {
   const trpc = useTRPC();
   const { data } = useSuspenseQuery(trpc.meetings.getMany.queryOptions({}));
 
   return (
-    <div className="overflow-x-scroll">
-
+    <div className="flex-1 pb-4 px-4 md:px-8 flex flex-col gap-y-4">
+ < DataTable data={data.items} columns={columns}/>
+   {data.items.length===0&&(<EmptyState
+                       title="Create yout first meeting"
+                 description="Create an agent to join your meetings.Each agent will follow your instructions and can interact with participants during the call"
+       
+       />)} 
 
     </div>
   );
