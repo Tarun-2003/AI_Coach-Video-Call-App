@@ -27,7 +27,7 @@ export const meetingsRouter = createTRPCRouter({
           code: "NOT_FOUND",
           message: "Meeting not found",
         });
-          }
+          }    
           return removedMeeting; 
       }),
   update: protectedProcedure 
