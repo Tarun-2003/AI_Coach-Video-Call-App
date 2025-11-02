@@ -11,6 +11,7 @@ import { useState } from "react";
 import { UpcomingState } from "@/modules/meetings/ui/components/upcoming-state";
 import { ActiveState } from "../components/active-state";
 import { CancelledState } from "../components/cancelled-state";
+import { ProcessingState } from "../components/processing-state";
 // import {useConfirm}
 
 interface Props {
@@ -77,7 +78,7 @@ const isProcessing = data.status === "processing";
 {/*     
         {JSON.stringify(data,null,2)} */}
         {isCancelled && <CancelledState/>}
-        {isProcessing && <div>Processing</div>}
+        {isProcessing && <ProcessingState/>}
         {isCompleted && <div>Completed</div>}
         {isActive && <ActiveState meetingId={meetingId}/>}
         {isUpcoming && (<UpcomingState
