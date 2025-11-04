@@ -81,10 +81,10 @@ const isProcessing = data.status === "processing";
         {isProcessing && <ProcessingState/>}
         {isCompleted && <div>Completed</div>}
         {isActive && <ActiveState meetingId={meetingId}/>}
-        {isUpcoming && (<UpcomingState
+        {isUpcoming && (
+          <UpcomingState
         meetingId={meetingId}
-        onCancelMeeting={()=>{}}
-        isCancelling={false}
+      
         />)}
 
 

@@ -4,7 +4,7 @@ import { Sidebar } from "@/components/ui/sidebar";
 import { SidebarContent } from "@/components/ui/sidebar";
 import { SidebarFooter } from "@/components/ui/sidebar";
 import { SidebarGroup } from "@/components/ui/sidebar";
-import { SidebarGroupContent } from "@/components/ui/sidebar";
+
 import { SidebarHeader } from "@/components/ui/sidebar";
 import { SidebarMenu } from "@/components/ui/sidebar";
 import { SidebarMenuButton } from "@/components/ui/sidebar";

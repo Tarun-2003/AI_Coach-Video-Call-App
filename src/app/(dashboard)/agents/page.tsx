@@ -4,7 +4,7 @@ import { getQueryClient } from "@/trpc/server";
 import { trpc } from "@/trpc/server";
 import { AgentsView, AgentsViewError, AgentsViewLoading } from "@/modules/agents/ui/views/agents-view";
 import { Suspense } from "react";
-import { LoadingState } from "@/components/loading-state";
+
 // import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import {ErrorBoundary} from "react-error-boundary";
 import { AgentsListHeader } from "@/modules/agents/ui/components/agents-list-header";

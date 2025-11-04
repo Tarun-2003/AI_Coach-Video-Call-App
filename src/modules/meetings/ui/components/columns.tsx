@@ -2,7 +2,7 @@
 
 import { ColumnDef } from "@tanstack/react-table"
 import { MeetingGetMany } from "../../types"
-import {format} from "date-fns";
+
 import humanizeDuration from "humanize-duration";
 import {
   CircleCheckIcon,
@@ -12,8 +12,8 @@ import {
   LoaderIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { GeneratedAvatar } from "@/components/generated-avatar"
-import { CornerDownRightIcon, VideoIcon } from "lucide-react"
+
+import { CornerDownRightIcon } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 // type meeting  =MeetingGetMany[number];
 function formatDuration(seconds: number) {
