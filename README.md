@@ -2,11 +2,11 @@
 
 An advanced AI-powered video conferencing platform designed for interactive coaching sessions. This application combines communication with AI-driven insights to enhance user engagement and productivity.
 
-Overview
+# Overview
 
 AI Coach Video Call App enables video communication integrated with intelligent coaching assistance. It is built using modern full-stack technologies with a strong focus on performance and developer experience.
 
-Features
+# Features
 1) Real-Time Video Communication
 High-quality video and audio streaming for smooth coaching sessions.
 2) Integration
@@ -20,7 +20,7 @@ Integrated with PostgreSQL using Drizzle ORM.
 6) Component-Based Architecture
 Scalable and reusable UI components.
 
-Tech Stack
+# Tech Stack
 Category	Technology
 Frontend	Next.js (App Router), React
 Language	TypeScript
@@ -30,12 +30,12 @@ Database	PostgreSQL
 ORM	Drizzle ORM
 Deployment	Vercel
 
-Prerequisites
+# Prerequisites
 Node.js (v18+ recommended)
 npm / yarn / pnpm
 PostgreSQL database
 
-Installation
+# Installation
 Clone the repository
 git clone https://github.com/Tarun-2003/AI_Coach_Video_Call_App.git
 
@@ -55,11 +55,11 @@ npm run dev
 
 http://localhost:3000
 
-Live Demo
+# Live Demo
 
 https://ai-coach-video-call-app.vercel.app/sign-in
 
-Deployment
+# Deployment
 
 The app is deployed using Vercel.
 
@@ -69,9 +69,9 @@ npm run build
 
 Or connect your repo directly to Vercel.
 
-Contributing
 
-Contributions are welcome!
+
+# Contributions are welcome!
 
 Fork the repo
 
