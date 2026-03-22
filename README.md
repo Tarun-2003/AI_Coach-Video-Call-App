@@ -1,4 +1,4 @@
-AI Coach Video Call App
+# AI Coach Video Call App
 
 An advanced AI-powered video conferencing platform designed for interactive coaching sessions. This application combines communication with AI-driven insights to enhance user engagement and productivity.
 
@@ -36,13 +36,13 @@ npm / yarn / pnpm
 PostgreSQL database
 
 Installation
-# Clone the repository
+Clone the repository
 git clone https://github.com/Tarun-2003/AI_Coach_Video_Call_App.git
 
-# Navigate into the project
+Navigate into the project
 cd AI_Coach_Video_Call_App
 
-# Install dependencies
+Install dependencies
 npm install
 Environment Variables
 
@@ -73,17 +73,18 @@ Contributing
 
 Contributions are welcome!
 
-# Fork the repo
-# Create your feature branch
+Fork the repo
+
+Create your feature branch
 git checkout -b feature/YourFeature
 
-# Commit changes
+Commit changes
 git commit -m "Add your feature"
 
-# Push to branch
+Push to branch
 git push origin feature/YourFeature
 
-# Open a Pull Request
+Open a Pull Request
 Future Improvements
 Authentication enhancements
 AI-powered session analytics
