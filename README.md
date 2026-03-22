@@ -26,13 +26,9 @@ Clone the repo:
 Install dependencies:
 Running the Development Server
 Start the local server to view the application:
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
 Open http://localhost:3000 with your browser to see the result
 .
 Project Structure
